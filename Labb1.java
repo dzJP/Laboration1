@@ -58,14 +58,14 @@ public class testss {
                     for (int i = 0; i < 5; i++) {
 
                         double number = numbers[i];
-                        //Add the grade to the total
+                        //Add the number to the total
 
 
-                        //If this is the highest grade we've encountered, set as the max.
+                        //If this is the highest number we've encountered, set as the max.
                         if (max < number) {
                             max = number;
                         }
-                        //If this is the lowest grade we've encountered, set as min.
+                        //If this is the lowest number we've encountered, set as min.
                         if (min > number) {
                             min = number;
                         }
