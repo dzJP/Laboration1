@@ -1,6 +1,7 @@
+import java.sql.Array;
 import java.util.*;
 
-public class testss {
+public class LaborationEtt {
 
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
@@ -44,6 +45,7 @@ public class testss {
                 if (yourChoice == 2) {
                     System.out.println("Ditt val är Min Max.");
 
+
                     double max = 0;
                     double min = Double.MAX_VALUE;
                     Scanner inputNumber = new Scanner(System.in);
@@ -76,45 +78,69 @@ public class testss {
                 }
 
                 if (yourChoice == 3) {
+
                     System.out.println("Ditt val är: Sten Sax Påse.");
-                    System.out.println("Tryck 1 för Sten.\nTryck 2 för Sax.\nTryck 3 för Påse.");
+                    Scanner in = new Scanner(System.in);
 
-                    int n = sc.nextInt();
-                    String[] userChoice = new String[n];
-                    System.out.println();
-                    sc.nextLine();
+                    //Use a while(true) loop and only break the loop if the user wants to quit
+                    while (true) {
 
-                    String arrayBot;
-                    String [] arrayBotChoice = {"Sten", "Sax", "Påse"};
-                    Random rand = new Random();
+                        //Get the user's move through user input
+                        System.out.print("Skriv sten, sax, påse eller skriv quit för att avsluta programmet.");
+                        String myInput = in.nextLine();
 
-                    arrayBot = arrayBotChoice [rand.nextInt(arrayBotChoice.length)];
+                        //Check if the user wants to quit the game
+                        if (myInput.equalsIgnoreCase("quit")) {
+                            break;
+                        }
 
-                    System.out.println("Botten fick: " + arrayBot);
-                    sc.nextLine();
+                        //Check if the user's move is valid (rock, paper, or scissors = false)
+                        if (!myInput.equals("sten") && !myInput.equals("paper") && !myInput.equals("scissors")) {
+
+                            System.out.println("Your move isn't valid!");
+
+                        } else {
+
+                            //Get a random number in between 0 and 3 and convert it to an integer so that the possibilities are 0, 1, or 2
+                            int randomNumber = (int) (Math.random() * 3);
+
+                            //Convert the random number to a string using conditionals and print the opponent's move
+                            String botChoice = "";
+                            if (randomNumber == 0) {
+                                botChoice = "sten";
+                            } else if (randomNumber == 1) {
+                                botChoice = "påse";
+                            } else {
+                                botChoice = "sax";
+                            }
+                            System.out.println("Bottens drag: " + botChoice);
+
+                            //Print the results of the game: tie, lose, win
+                            if (myInput.equalsIgnoreCase(botChoice)) {
+                                System.out.println("Oavgjort.");
+                            } else if ((myInput.equals("sten") && botChoice.equals("sax")) ||
+                                    (myInput.equals("scissors") && botChoice.equals("paper")) ||
+                                    (myInput.equals("paper") && botChoice.equals("rock"))) {
+                                System.out.println("Du vann!");
+                            } else {
+                                System.out.println("Du förlorade!");
+                            }
+                        }
+
+                        if (yourChoice == 4) {
+
+                            System.out.println("Du valde ordning och reda");
 
 
+                        }
 
 
-
-//            Här ska man kunna spela sten sax påse mot datorn. Låt användaren mata in sitt val på något lämpligt
-//            sätt och slumpa sedan datorns val. Först till 3 vinster vinner. Mellan varje omgång ska du skriva ut
-//            vem som vann omgången eller om det blev oavgjort samt poängställningen just nu.
-//            När någon vunnit 3 gånger ska ett gratulationsmeddelande skrivas ut riktat mot vinnaren
-
-                } else if (yourChoice == 4) {
-                    System.out.println("Ditt val är: Ordning och reda.");
-
-                } else
-                    System.out.println("Ogiltigt val, försök igen.");
-
-            } else if (input.hasNext()) {
-                String userInput = input.next();
-
-                if (userInput.equalsIgnoreCase("e")) {
-                    run = false;
+                        /**   Använd samma inläsning för tal som i uppgift 3 men modifiera den om nödvändigt så att du kan läsa
+                        in alla tal som en textrad där talen separeras av mellanslag istället för radbrytning.
+                        Utöka även så att programmet nu hittar det näst största respektive näst minsta talet samt addera
+                        ihop talen och presentera summan.*/
+                    }
                 }
-
             }
         }
     }
