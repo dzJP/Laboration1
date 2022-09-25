@@ -132,9 +132,8 @@ public class Labb1 {
 
 
                 if (yourChoice == 4) {
-                    int[] numbers;
-                    while (true) {
-
+                        int[] numbers;
+                        int sum = 0;
                         int max = 0;
                         int min = Integer.MAX_VALUE;
                         numbers = new int[5];
@@ -143,6 +142,7 @@ public class Labb1 {
 
                         for (int i = 0; i < numbers.length; i++) {
                             numbers[i] = input.nextInt();
+                            sum = sum + numbers[i];
                         }
 
                         for (int i = 0; i < 5; i++) {
@@ -159,16 +159,24 @@ public class Labb1 {
                             if (min > number) {
                                 min = number;
                             }
-
                         }
 
-                        System.out.println(Arrays.toString(numbers).replaceAll("[\\[|,\\]]", ""));
-                        System.out.print("Störst:" + max);
+                        System.out.print(Arrays.toString(numbers).replaceAll("[\\[|,\\]]", ""));
+                        System.out.print("\nStörst:" + max);
                         System.out.print("\nMinst:" + min);
-                        System.out.println("\nNäst minst:" + numbers[3]);
-                        System.out.println("Näst störst:" + numbers[1]);
+                        System.out.print("\nNäst minst:" + numbers[3]);
+                        System.out.print("\nNäst störst:" + numbers[1]);
 
-                    }
+                        System.out.print("\nSumma "+sum);
+                        Arrays.sort(numbers);
+                        if (numbers == numbers) {
+                            System.out.print("\ntrue"); // true
+                        } else {
+                            System.out.print("\nfalse"); // false
+                        }
+
+                        System.out.println("\nTryck på Enter för att börja om.");
+                        sc.nextLine();
                 }
             }
         }
