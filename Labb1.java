@@ -1,7 +1,8 @@
-import java.sql.Array;
+package Section5ControlFlowStatements.src;
+
 import java.util.*;
 
-public class LaborationEtt {
+public class Labb1 {
 
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
@@ -95,7 +96,7 @@ public class LaborationEtt {
                         }
 
                         //Check if the user's move is valid (rock, paper, or scissors = false)
-                        if (!myInput.equals("sten") && !myInput.equals("paper") && !myInput.equals("scissors")) {
+                        if (!myInput.equals("sten") && !myInput.equals("paper") && !myInput.equals("sax")) {
 
                             System.out.println("Your move isn't valid!");
 
@@ -119,29 +120,58 @@ public class LaborationEtt {
                             if (myInput.equalsIgnoreCase(botChoice)) {
                                 System.out.println("Oavgjort.");
                             } else if ((myInput.equals("sten") && botChoice.equals("sax")) ||
-                                    (myInput.equals("scissors") && botChoice.equals("paper")) ||
-                                    (myInput.equals("paper") && botChoice.equals("rock"))) {
+                                    (myInput.equals("sax") && botChoice.equals("påse")) ||
+                                    (myInput.equals("påse") && botChoice.equals("sten"))) {
                                 System.out.println("Du vann!");
                             } else {
                                 System.out.println("Du förlorade!");
                             }
                         }
+                    }
+                }
 
-                        if (yourChoice == 4) {
 
-                            System.out.println("Du valde ordning och reda");
+                if (yourChoice == 4) {
+                    int[] numbers;
+                    while (true) {
 
+                        int max = 0;
+                        int min = Integer.MAX_VALUE;
+                        numbers = new int[5];
+
+                        System.out.println("Lägg till tal.");
+
+                        for (int i = 0; i < numbers.length; i++) {
+                            numbers[i] = input.nextInt();
+                        }
+
+                        for (int i = 0; i < 5; i++) {
+
+                            int number = numbers[i];
+                            //Add the number to the total
+
+
+                            //If this is the highest number we've encountered, set as the max.
+                            if (max < number) {
+                                max = number;
+                            }
+                            //If this is the lowest number we've encountered, set as min.
+                            if (min > number) {
+                                min = number;
+                            }
 
                         }
 
+                        System.out.println(Arrays.toString(numbers).replaceAll("[\\[|,\\]]", ""));
+                        System.out.print("Störst:" + max);
+                        System.out.print("\nMinst:" + min);
+                        System.out.println("\nNäst minst:" + numbers[3]);
+                        System.out.println("Näst störst:" + numbers[1]);
 
-                        /**   Använd samma inläsning för tal som i uppgift 3 men modifiera den om nödvändigt så att du kan läsa
-                        in alla tal som en textrad där talen separeras av mellanslag istället för radbrytning.
-                        Utöka även så att programmet nu hittar det näst största respektive näst minsta talet samt addera
-                        ihop talen och presentera summan.*/
                     }
                 }
             }
         }
     }
 }
+
