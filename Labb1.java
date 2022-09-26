@@ -1,17 +1,10 @@
 package Section5ControlFlowStatements.src;
 
-import jdk.swing.interop.SwingInterOpUtils;
-
 import java.util.*;
 
 public class Labb1 {
 
     public static void main(String[] args) {
-        Scanner input = new Scanner(System.in);
-        Scanner sc = new Scanner(System.in);
-        Scanner end = new Scanner(System.in);
-
-
         boolean run = true;
 
         while (run) {
@@ -22,11 +15,14 @@ public class Labb1 {
                     4. Ordning och reda.
                     e. Avsluta. """);
 
+            Scanner end = new Scanner(System.in);
+            Scanner input = new Scanner(System.in);
+            Scanner sc = new Scanner(System.in);
+
             int yourChoice = 0;
 
 
             if (input.hasNextInt()) {
-
                 yourChoice = input.nextInt();
                 if (yourChoice == 1) {
                     Scanner userExit = new Scanner(System.in);
@@ -47,10 +43,9 @@ public class Labb1 {
                         System.out.println("Avslutar programmet..");
                         System.exit(0);
                     }
-                    Arrays.sort(names);
+
                     System.out.println(names[2] + " " + names[1] + " " + names[0]);
                 }
-
 
 
                 if (yourChoice == 2) {
@@ -166,7 +161,7 @@ public class Labb1 {
                     int min = Integer.MAX_VALUE;
                     numbers = new int[5];
 
-                    System.out.println("Lägg till tal.");
+                    System.out.println("Val 4: Lägg till tal.");
 
                     for (int i = 0; i < numbers.length; i++) {
                         numbers[i] = input.nextInt();
@@ -205,6 +200,10 @@ public class Labb1 {
                     System.out.println("\nTryck på Enter för att börja om.");
                     sc.nextLine();
                 }
+
+            } else {
+                System.out.println("Programmet avslutas..");
+                System.exit(0);
             }
         }
     }
