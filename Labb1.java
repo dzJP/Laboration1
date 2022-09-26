@@ -66,14 +66,14 @@ public class Labb1 {
                     for (int i = 0; i < 5; i++) {
 
                         double number = numbers[i];
-                        //Add number to total
+                        // add number to total
 
 
-                        //Set to max if this is the highest number we found
+                        // if this is the highest number we've encountered, set as the max.
                         if (max < number) {
                             max = number;
                         }
-                        //Set to min if this is the lowest number found
+                        // if this is the smallest number we've encountered, set as the min.
                         if (min > number) {
                             min = number;
                         }
