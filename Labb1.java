@@ -1,5 +1,3 @@
-package Section5ControlFlowStatements.src;
-
 import java.util.*;
 
 public class Labb1 {
