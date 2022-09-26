@@ -24,7 +24,9 @@ public class Labb1 {
 
             if (input.hasNextInt()) {
                 yourChoice = input.nextInt();
-                if (yourChoice == 1) {
+
+                if (yourChoice == 1) { // if choice 1, continue loop
+
                     Scanner userExit = new Scanner(System.in);
 
 
@@ -32,30 +34,28 @@ public class Labb1 {
                             "inmatning. ");
                     String[] names = new String[3];
                     for (int i = 0; i < names.length; i++) {
-                        names[i] = input.next();
+                        names[i] = input.next(); // add user input to array
                     }
-
-
                     System.out.println("Tryck på Enter för att fortsätta eller skriv end för att avsluta.");
-
+                    // choice
                     String userInput = end.nextLine();
                     if (userInput.equalsIgnoreCase("end")) {
                         System.out.println("Avslutar programmet..");
                         System.exit(0);
-                    }
+                    }  // if "end" exists system else prints out array.
 
                     System.out.println(names[2] + " " + names[1] + " " + names[0]);
                 }
 
 
-                if (yourChoice == 2) {
+                if (yourChoice == 2) { // if choice 2,continue loop
                     System.out.println("Val 2: Min Max.");
 
 
                     double max = 0;
                     double min = Double.MAX_VALUE;
                     Scanner inputNumber = new Scanner(System.in);
-                    double[] numbers = new double[5];
+                    double[] numbers = new double[5]; //  array with 5 positions
 
                     System.out.println("Lägg till tal.");
 
@@ -66,14 +66,14 @@ public class Labb1 {
                     for (int i = 0; i < 5; i++) {
 
                         double number = numbers[i];
-                        //Add the number to the total
+                        //Add number to total
 
 
-                        //If this is the highest number we've encountered, set as the max.
+                        //Set to max if this is the highest number we found
                         if (max < number) {
                             max = number;
                         }
-                        //If this is the lowest number we've encountered, set as min.
+                        //Set to min if this is the lowest number found
                         if (min > number) {
                             min = number;
                         }
@@ -83,36 +83,36 @@ public class Labb1 {
                     System.out.println("Minsta tal är: " + min);
                 }
 
-                if (yourChoice == 3) {
+                if (yourChoice == 3) { // if choice 3, continue loop
 
                     System.out.println("\nVal 3: Sten, Sax, Påse.");
                     Scanner in = new Scanner(System.in);
                     int playerScore = 0;
                     int botScore = 0;
 
-                    //Use a while(true) loop and only break the loop if the user wants to quit
+                    // while(true) loop and only breaks the loop if the user wants to quit
                     while (true) {
 
-                        //Get the user's move through user input
+                        // get the user's move through user input
                         System.out.println("\nSkriv sten, sax, påse eller skriv end för att avsluta programmet.");
                         String myInput = in.nextLine();
 
-                        //Check if the user wants to quit the game
+                        // check if the user wants to quit the game
                         if (myInput.equalsIgnoreCase("end")) {
                             break;
                         }
 
-                        //Check if the user's move is valid (rock, paper, or scissors = false)
+                        // check if the user's move is valid (rock, paper, or scissors = false)
                         if (!myInput.equals("sten") && !myInput.equals("påse") && !myInput.equals("sax")) {
 
                             System.out.println("Felaktigt drag!");
 
                         } else {
 
-                            //Get a random number in between 0 and 3 and convert it to an integer so that the possibilities are 0, 1, or 2
+                            // get a random number in between 0 and 3 and convert it to an integer so that the possibilities are 0, 1, or 2
                             int randomNumber = (int) (Math.random() * 3);
 
-                            //Convert the random number to a string using conditionals and print the opponent's move
+                            // convert the random number to a string using conditionals and print the opponent's move
                             String botChoice = "";
                             if (randomNumber == 0) {
                                 botChoice = "sten";
@@ -123,7 +123,7 @@ public class Labb1 {
                             }
                             System.out.println("\nDatorns drag: " + botChoice);
 
-                            //Print the results of the game: tie, lose, win
+                            // print the results of the game: tie, lose, win
                             if (myInput.equalsIgnoreCase(botChoice)) {
                                 System.out.println("Oavgjort.");
                                 System.out.println("Du har: " + playerScore + " poäng. " + "\nDatorn har: " + botScore + " poäng.");
@@ -153,7 +153,7 @@ public class Labb1 {
                     }
                 }
 
-                if (yourChoice == 4) {
+                if (yourChoice == 4) { // if choice 4, continue loop
 
                     int[] numbers;
                     int sum = 0;
@@ -170,14 +170,14 @@ public class Labb1 {
 
                     for (int i = 0; i < 5; i++) {
                         int number = numbers[i];
-                        //Add the number to the total
+                        // add the number to the total
 
 
-                        //If this is the highest number we've encountered, set as the max.
+                        // if this is the highest number we've encountered, set as the max.
                         if (max < number) {
                             max = number;
                         }
-                        //If this is the lowest number we've encountered, set as min.
+                        // if this is the lowest number we've encountered, set as min.
                         if (min > number) {
                             min = number;
                         }
@@ -202,7 +202,7 @@ public class Labb1 {
                 }
 
             } else {
-                System.out.println("Programmet avslutas..");
+                System.out.println("Programmet avslutas.."); // in all other circumstances, exit system.
                 System.exit(0);
             }
         }
